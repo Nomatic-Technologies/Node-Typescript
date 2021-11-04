@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.express = void 0;
+exports.express = require('express');
+var router = exports.express.Router();
+var swaggerUi = require('swagger-ui-express');
+var YAML = require('yamljs');
+var swaggerDocument = YAML.load('./swagger.yaml');
+router.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+module.exports = router;
